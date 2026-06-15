@@ -4,44 +4,328 @@
 <meta charset="UTF-8">
 <title>Архитектурный дайджест</title>
 <style>
-:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#fafaf7;color:#1a1a1a;line-height:1.5}.wrap{max-width:1100px;margin:0 auto;padding:28px 24px 60px}header{border-bottom:1px solid #e6e3dc;padding-bottom:20px;margin-bottom:20px}.title-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}h1{margin:0;font-size:28px;font-weight:700;letter-spacing:-.02em;font-family:Georgia,"Times New Roman",serif}.updated{font-size:13px;color:#6b6b66}.lede{margin-top:6px;font-size:14px;color:#4a4a44;max-width:720px}.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}.filter-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.filter-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-right:8px;min-width:80px}.chip{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid #d8d4ca;background:#fff;color:#333;font-size:13px;cursor:pointer;user-select:none;transition:all .15s}.chip:hover{border-color:#888}.chip.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}.card{background:#fff;border:1px solid #e6e3dc;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s}.card:hover{border-color:#1a1a1a}.meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#6b6b66}.source{font-weight:600;color:#444}.topics{display:flex;gap:4px;flex-wrap:wrap}.topic-tag{font-size:11px;padding:2px 8px;border-radius:4px;background:#f1ede4;color:#5a5246}.card h3{margin:0;font-size:17px;line-height:1.3;font-family:Georgia,"Times New Roman",serif;font-weight:600}.card h3 a{color:inherit;text-decoration:none}.card h3 a:hover{text-decoration:underline}.summary{font-size:14px;color:#3a3a33;margin:0}.empty{text-align:center;padding:40px;color:#888;font-style:italic}footer{margin-top:40px;padding-top:20px;border-top:1px solid #e6e3dc;font-size:12px;color:#888}.count{font-size:13px;color:#6b6b66;margin-bottom:12px}
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#fafaf7;color:#1a1a1a;line-height:1.5}.wrap{max-width:1100px;margin:0 auto;padding:28px 24px 60px}header{border-bottom:1px solid #e6e3dc;padding-bottom:20px;margin-bottom:20px}.title-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}h1{margin:0;font-size:28px;font-weight:700;letter-spacing:-.02em;font-family:Georgia,"Times New Roman",serif}.updated{font-size:13px;color:#6b6b66}.lede{margin-top:6px;font-size:14px;color:#4a4a44;max-width:720px}.tabs{display:flex;gap:0;border-bottom:1px solid #e6e3dc;margin-bottom:24px}.tab{padding:12px 20px;font-size:15px;font-weight:600;color:#6b6b66;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;user-select:none;transition:all .15s}.tab:hover{color:#1a1a1a}.tab.active{color:#1a1a1a;border-bottom-color:#1a1a1a}.pane{display:none}.pane.active{display:block}.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}.filter-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.filter-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-right:8px;min-width:80px}.chip{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid #d8d4ca;background:#fff;color:#333;font-size:13px;cursor:pointer;user-select:none;transition:all .15s}.chip:hover{border-color:#888}.chip.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}.card{background:#fff;border:1px solid #e6e3dc;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s}.card:hover{border-color:#1a1a1a}.meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#6b6b66}.source{font-weight:600;color:#444}.topics{display:flex;gap:4px;flex-wrap:wrap}.topic-tag{font-size:11px;padding:2px 8px;border-radius:4px;background:#f1ede4;color:#5a5246}.card h3{margin:0;font-size:17px;line-height:1.3;font-family:Georgia,"Times New Roman",serif;font-weight:600}.card h3 a{color:inherit;text-decoration:none}.card h3 a:hover{text-decoration:underline}.summary{font-size:14px;color:#3a3a33;margin:0}.empty{text-align:center;padding:40px;color:#888;font-style:italic}footer{margin-top:40px;padding-top:20px;border-top:1px solid #e6e3dc;font-size:12px;color:#888}.count{font-size:13px;color:#6b6b66;margin-bottom:12px}.month-head{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:700;margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid #e6e3dc}.month-head:first-child{margin-top:0}.evt{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid #ede9e0}.evt:last-child{border-bottom:none}.evt-date{font-family:Georgia,serif;font-size:14px;font-weight:600;color:#1a1a1a;padding-top:2px}.evt-date small{display:block;font-weight:400;color:#888;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}.evt-body{display:flex;flex-direction:column;gap:6px}.evt-tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;background:#1a1a1a;color:#fff;text-transform:uppercase;letter-spacing:.05em;width:fit-content}.evt-tag.exhibition{background:#5a7a55}.evt-tag.opening{background:#a06640}.evt-tag.award{background:#7a5a8a}.evt-tag.anniversary{background:#8a6a40}.evt-tag.birthday{background:#4a6a8a}.evt-tag.death{background:#555}.evt-tag.building{background:#a06640}.evt h4{margin:0;font-family:Georgia,serif;font-size:17px;font-weight:600;line-height:1.3}.evt h4 a{color:inherit;text-decoration:none}.evt h4 a:hover{text-decoration:underline}.evt p{margin:0;font-size:14px;color:#3a3a33}.evt-loc{font-size:13px;color:#6b6b66;font-style:italic}.ages{font-size:13px;color:#888;font-weight:400;margin-left:4px}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div class="title-row"><h1>Архитектурный дайджест</h1><div class="updated">Обновлено: 8 июня 2026</div></div><p class="lede">Подборка свежих новостей мировой и российской архитектуры. Обновляется автоматически дважды в неделю.</p></header>
+<header><div class="title-row"><h1>Архитектурный дайджест</h1><div class="updated">Обновлено: 15 июня 2026</div></div><p class="lede">Свежие новости, календарь событий на 60 дней вперёд и эфемериды — памятные даты архитектуры. Обновляется автоматически дважды в неделю.</p></header>
+<div class="tabs"><div class="tab active" data-tab="news">Новости</div><div class="tab" data-tab="calendar">Календарь</div><div class="tab" data-tab="ephem">Эфемериды</div></div>
+
+<div class="pane active" id="pane-news">
 <div class="filters"><div class="filter-row" id="topic-filters"><span class="filter-label">Тема</span></div><div class="filter-row" id="region-filters"><span class="filter-label">Регион</span></div></div>
 <div class="count" id="count"></div><div class="grid" id="grid"></div>
-<footer>Источники: Dezeen, ArchDaily, Архи.ру, BauNetz, Wallpaper*, Architectural Record и др.</footer>
+</div>
+
+<div class="pane" id="pane-calendar">
+<div class="filters"><div class="filter-row" id="event-filters"><span class="filter-label">Тип</span></div></div>
+<div id="events"></div>
+</div>
+
+<div class="pane" id="pane-ephem">
+<div class="filters"><div class="filter-row" id="ephem-range-filters"><span class="filter-label">Период</span></div><div class="filter-row" id="ephem-type-filters"><span class="filter-label">Тип</span></div></div>
+<div class="count" id="ephem-count"></div><div id="ephem"></div>
+</div>
+
+<footer>Источники: новости — поисковая выдача; календарь — официальные сайты событий; эфемериды — справочные базы (биографические даты). Дата следующего автообновления — четверг.</footer>
 </div>
 <script>
 const NEWS = [
-  {title:"Серпентайн Павильон 2026: LANZA atelier создали «Серпентину» в Лондоне",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-06-06",topics:["buildings"],region:"international",summary:"6 июня в лондонском Гайд-парке открылся 25-й павильон Серпентайн, спроектированный мексиканским бюро LANZA atelier. Юбилейная конструкция «a serpentine» отмечает 25-летие программы, стартовавшей в 2000 году с проекта Захи Хадид.",url:"https://www.dezeen.com/architecture/"},
-  {title:"Завершено строительство Президентского центра Обамы в Чикаго",source:"ArchDaily",sourceUrl:"https://www.archdaily.com",date:"2026-06-03",topics:["buildings","people"],region:"international",summary:"Бюро Tod Williams Billie Tsien Architects завершило монументальный гранитный комплекс с искусственными холмами в честь 44-го президента США. Центр стал масштабным культурным хабом на южной стороне Чикаго.",url:"https://www.archdaily.com/architecture-news"},
-  {title:"Лауреат Притцкеровской премии 2026 — чилиец Смильян Радич Кларк",source:"Pritzker Architecture Prize",sourceUrl:"https://www.pritzkerprize.com/media-news",date:"2026-03-12",topics:["awards","people"],region:"international",summary:"12 марта объявлен лауреат главной архитектурной премии — им стал Смильян Радич Кларк из Сантьяго, второй чилиец после Алехандро Аравены (2016). Объявление задержалось из-за скандала вокруг семьи Притцкеров.",url:"https://www.pritzkerprize.com/media-news"},
-  {title:"Финалисты премии Миса ван дер Роэ 2026 — семь проектов будущего Европы",source:"Mies van der Rohe Award",sourceUrl:"https://www.miesarch.com",date:"2026-05-15",topics:["awards"],region:"europe",summary:"Европейская комиссия и Фонд Миса ван дер Роэ объявили семь финалистов премии 2026 года: пять в категории «Архитектура» и два — «Emerging». Жюри возглавил новоиспечённый лауреат Притцкера Смильян Радич.",url:"https://www.miesarch.com"},
-  {title:"London Festival of Architecture 2026: месяц под темой Belonging",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-06-01",topics:["urbanism","awards"],region:"europe",summary:"Июнь в Лондоне проходит под знаком Фестиваля архитектуры с темой «Принадлежность». Активации охватывают 11 районов города — публичные инсталляции, дискуссии и открытые дни в архитектурных бюро.",url:"https://www.dezeen.com/2026/06/01/eight-architecture-design-events-june-dezeen-events-guide-2026/"},
-  {title:"Concéntrico 2026: урбанистические интервенции превратят Логроньо в лабораторию",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-06-01",topics:["urbanism"],region:"europe",summary:"С 18 по 23 июня испанский Логроньо примет фестиваль Concéntrico — более 20 архитектурных интервенций на площадях, пустырях, мостах и улицах города.",url:"https://www.dezeen.com/2026/06/01/eight-architecture-design-events-june-dezeen-events-guide-2026/"},
-  {title:"Мастерплан Barangaroo South в Сиднее: порт стал безуглеродным кварталом",source:"ArchDaily",sourceUrl:"https://www.archdaily.com",date:"2026-05-28",topics:["urbanism","buildings"],region:"international",summary:"Реализован мастерплан 22-гектарного бывшего контейнерного порта в Сиднее. Квартал Barangaroo South объединил офисы, жильё и публичные набережные, получив статус углеродно-нейтральной территории.",url:"https://www.archdaily.com/tag/masterplan"},
-  {title:"Hunnu City: мастерплан нового монгольского города до 2050 года",source:"ArchDaily",sourceUrl:"https://www.archdaily.com",date:"2026-05-30",topics:["urbanism"],region:"international",summary:"Победивший мастерплан Hunnu City ориентирован на цели развития Монголии до 2050 года — устойчивость, умные технологии и децентрализованный рост. Один из крупнейших градостроительных заказов года.",url:"https://www.archdaily.com/1037399/from-housing-policy-in-europe-to-large-scale-master-planning-in-mongolia-this-weeks-review"},
-  {title:"Нью-Йорк в 2026 году ждёт исторически первого генерального плана",source:"Common Edge",sourceUrl:"https://commonedge.org",date:"2026-06-02",topics:["urbanism"],region:"international",summary:"Авторитетное издание Common Edge призвало Нью-Йорк принять первый в истории города комплексный генеральный план. Жилищный кризис и климатические риски делают долгосрочное планирование мегаполиса неотложным.",url:"https://commonedge.org/its-2026-time-for-a-comprehensive-plan-for-new-york-city/"},
-  {title:"NS Square в Сингапуре: эталон климатически адаптивного публичного пространства",source:"ArchDaily",sourceUrl:"https://www.archdaily.com",date:"2026-05-25",topics:["urbanism","engineering"],region:"international",summary:"Площадь NS Square стала эталоном устойчивой городской среды: вертикальные леса, пассивное охлаждение фасадов, городские фермы и принципы циркулярной экономики — в одном общественном пространстве.",url:"https://www.archdaily.com/architecture-news"},
-  {title:"Depot Boijmans в Роттердаме: инженерный манифест в форме зеркальной чаши",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-05-27",topics:["buildings","engineering"],region:"europe",summary:"Depot Boijmans Van Beuningen продолжает переосмыслять тип музейного здания: открытое хранилище с зеркальной куполообразной поверхностью полностью доступно для посетителей — редчайший прецедент в музейной практике.",url:"https://www.dezeen.com/architecture/"},
-  {title:"Европейская жара 2026: архитекторы ищут ответы на климатический вызов",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-06-03",topics:["engineering","urbanism"],region:"europe",summary:"Одна из самых ранних волн тепла охватила Португалию, Францию, Испанию, Италию, Германию и Великобританию. Архитектурное сообщество обсуждает адаптацию городской среды к новой климатической норме.",url:"https://www.dezeen.com/news/"},
-  {title:"АРХ Москва 2026: «В поисках идеала» — 31-я выставка прошла в Гостином Дворе",source:"АРХ Москва",sourceUrl:"https://www.archmoscow.ru/",date:"2026-05-27",topics:["awards","urbanism"],region:"russia",summary:"С 27 по 30 мая в Гостином Дворе прошла 31-я международная выставка АРХ Москва с темой «поиски идеала». Более 27 тысяч посетителей — архитекторов, девелоперов и урбанистов — обсудили будущее российских городов.",url:"https://www.archmoscow.ru/"},
-  {title:"На АРХ Москве обсудили рецепт идеального градостроительного проекта",source:"Строительная газета",sourceUrl:"https://stroygaz.ru",date:"2026-05-30",topics:["urbanism","people"],region:"russia",summary:"На деловой программе выставки архитекторы, чиновники и девелоперы искали общую формулу качественного городского проекта. Дискуссии выявили противоречие между коммерческой эффективностью и градостроительными ценностями.",url:"https://stroygaz.ru/news/architecture/na-arkh-moskve-obsudili-retsept-idealnogo-gradostroitelnogo-proekta/"},
-  {title:"NEXT на АРХ Москве: программа поддержки молодых бюро привлекла рекордное число участников",source:"Архи.ру",sourceUrl:"https://archi.ru/",date:"2026-05-28",topics:["people","awards"],region:"russia",summary:"Специальный раздел NEXT для бюро не старше десяти лет стал площадкой для дебюта нового поколения российских архитекторов — от реновации жилья до концепций смешанных общественных пространств.",url:"https://archi.ru/"},
-  {title:"San Francisco Design Week отмечает 20-летие под темой Multitudes",source:"Dezeen",sourceUrl:"https://www.dezeen.com",date:"2026-06-01",topics:["awards","people"],region:"international",summary:"Двадцатый юбилейный San Francisco Design Week прошёл под темой Multitudes («Множественность»), отмечая силу разнообразия в дизайне. Сотни событий объединили дизайнеров, архитекторов и технологические компании Залива.",url:"https://www.dezeen.com/2026/06/01/eight-architecture-design-events-june-dezeen-events-guide-2026/"},
-  {title:"Университет Мичигана открывает магистратуру по городским технологиям",source:"Planetizen",sourceUrl:"https://www.planetizen.com",date:"2026-04-15",topics:["people","urbanism"],region:"international",summary:"Новая магистерская программа по urban technology готовит специалистов на стыке градостроительства, данных и ИИ — в ответ на растущий спрос городов на экспертов с цифровыми инструментами планирования.",url:"https://www.planetizen.com/news/2026/04/137332-university-michigan-launches-urban-technology-masters-program"}
+{title:"AIA объявил победителей премии 2026 года",source:"AIA",sourceUrl:"https://www.aia.org/",date:"2026-06-10",topics:["awards"],region:"international",summary:"Американский институт архитекторов назвал лауреатов премии 2026 года на гала в Сан-Диего (Hilton San Diego Bayfront). Отмечены более 100 проектов в 10 категориях, включая Architecture Award, COTE Top Ten и Twenty-Five Year Award.",url:"https://www.aia.org/about-aia/press/aia-awards-2026-winners-announced-10-project-categories"},
+{title:"В Чикаго представили Президентский центр Обамы",source:"Dezeen",sourceUrl:"https://www.dezeen.com/",date:"2026-06-04",topics:["buildings"],region:"international",summary:"Бюро Tod Williams Billie Tsien Architects завершило кампус Президентского центра Обамы в Чикаго. Доминанта комплекса — гранитная башня-музей высотой около 69 метров со смотровой площадкой. Открытие для публики намечено на 19 июня.",url:"https://www.dezeen.com/2026/06/04/tod-williams-billie-tsien-obama-presidential-center/"},
+{title:"Herzog & de Meuron обновят Дворец конгрессов в Тиране",source:"Dezeen",sourceUrl:"https://www.dezeen.com/",date:"2026-06-10",topics:["buildings"],region:"europe",summary:"Бюро Herzog & de Meuron выбрали для реконструкции Дворца конгрессов социалистической эпохи в столице Албании. Проект сохраняет существующий зал на 2100 мест и добавляет общественную площадь и многофункциональную башню.",url:"https://www.dezeen.com/2026/06/10/herzog-de-meuron-palace-congresses-tirana/"},
+{title:"В Барселоне освятили башню Иисуса Христа Саграда Фамилия",source:"CNN",sourceUrl:"https://www.cnn.com/",date:"2026-06-10",topics:["buildings","engineering"],region:"europe",summary:"Папа Лев XIV освятил башню Иисуса Христа — финальную и самую высокую башню собора Гауди, что сделало Саграда Фамилия самым высоким храмом мира (более 170 метров). Церемония прошла к столетию со дня смерти архитектора.",url:"https://www.cnn.com/2026/06/08/style/sagrada-familia-barcelona-tower-jesus-christ-intl"},
+{title:"В Лондоне открылся 25-й павильон Serpentine бюро LANZA atelier",source:"ArchDaily",sourceUrl:"https://www.archdaily.com/",date:"2026-06-06",topics:["buildings"],region:"europe",summary:"Юбилейный Serpentine Pavilion работы мексиканской студии LANZA atelier (Изабель Абаскаль и Алессандро Ариенцо) открылся для публики 6 июня. Кирпичная конструкция «a serpentine» обыгрывает исторические извилистые стены crinkle-crankle; павильон работает до 25 октября.",url:"https://www.archdaily.com/1042141/the-25th-serpentine-pavilion-designed-by-lanza-atelier-opens-to-the-public-on-june-6th-2026"},
+{title:"Объявлены победители 14-й премии Architizer A+Awards",source:"Architizer",sourceUrl:"https://architizer.com/",date:"2026-06-08",topics:["awards"],region:"international",summary:"Architizer назвал лауреатов 14-й ежегодной премии A+Awards — одной из крупнейших международных архитектурных наград. Проекты отбирались более чем в 100 категориях из тысяч заявок со всего мира.",url:"https://architizer.com/blog/inside-architizer/updates/2026-aawards-winners-announcement/"},
+{title:"RIBA назвал победителей International Awards for Excellence 2026",source:"Wallpaper*",sourceUrl:"https://www.wallpaper.com/",date:"2026-06-04",topics:["awards"],region:"international",summary:"Королевский институт британских архитекторов объявил 34 проекта-победителя International Awards for Excellence 2026 из шорт-листа в 52 работы, отметив лучшую новую архитектуру в 15 странах.",url:"https://www.wallpaper.com/architecture/riba-international-awards-for-excellence-2026"},
+{title:"Новый самый высокий небоскреб мира достраивают в Саудовской Аравии",source:"New Atlas",sourceUrl:"https://newatlas.com/",date:"2026-06-03",topics:["engineering","buildings"],region:"international",summary:"Строительство башни JEC в Саудовской Аравии продолжается; проект претендует на звание нового самого высокого здания мира. New Atlas публикует свежий обзор хода работ.",url:"https://newatlas.com/architecture/jec-tower-june-2026-update/"},
+{title:"Studio Mango завершило прибрежный павильон Four Walls под Ченнаи",source:"ArchDaily",sourceUrl:"https://www.archdaily.com/",date:"2026-06-11",topics:["buildings"],region:"international",summary:"Лондонское бюро Studio Mango построило павильон Four Walls на берегу озера к югу от Ченнаи (Индия). Он замыкает линейный парк жилого района Sanctuary by Aarth.",url:"https://www.archdaily.com/1042335/four-walls-pavilion-studio-mango"},
+{title:"В совет директоров AIA избрали трёх новых руководителей",source:"AIA",sourceUrl:"https://www.aia.org/",date:"2026-06-12",topics:["people"],region:"international",summary:"Джойс Оуэнс (FAIA) избрана президентом AIA на 2028 год, Джонатан Мэтью Тейлор — секретарём на 2027–2028 годы, Сара Войнич — директором at-large. Об избрании объявлено 12 июня.",url:"https://www.aia.org/about-aia/press/three-new-leaders-elected-aia-board-directors-1"},
+{title:"АРХ Москва 2026 прошла под темой «Идеал»",source:"Архи.ру",sourceUrl:"https://archi.ru/",date:"2026-05-27",topics:["awards"],region:"russia",summary:"31-я международная выставка-форум архитектуры и дизайна АРХ Москва прошла 27–30 мая в Гостином дворе. Тема года — «Идеал»; раздел NEXT представил молодые бюро не старше десяти лет.",url:"https://archi.ru/russia/102267/v-poiskakh-ideala-chto-smotret-na-arh-moskve"},
+{title:"За пять месяцев 2026 года в Москве ввели 28 социальных объектов",source:"Москва 24",sourceUrl:"https://www.m24.ru/",date:"2026-06-05",topics:["urbanism"],region:"russia",summary:"С начала 2026 года в Москве построили 28 социальных объектов, в том числе 13 детских садов, школ и образовательных комплексов. Всего за год планируют возвести более 100 социальных объектов.",url:"https://www.m24.ru/news/05062026/907723"}
 ];
+
+const EVENTS = [
+{date:"2026-05-09",dateEnd:"2026-11-22",type:"exhibition",title:"Венецианская биеннале искусств — продолжается",location:"Венеция, Италия",summary:"61-я биеннале искусств работает с 9 мая по 22 ноября. Курс покойной Кёйо Куо — «In Minor Keys», участники из 99 стран. Открыта в Джардини, Арсенале и по всему городу.",url:"https://www.labiennale.org/en/art/2026"},
+{date:"2026-06-06",dateEnd:"2026-10-25",type:"exhibition",title:"Павильон Serpentine 2026 — LANZA atelier",location:"Лондон, Великобритания",summary:"25-й Serpentine Pavilion мексиканской студии LANZA atelier «a serpentine»: кирпичная конструкция, отсылка к историческим стенам crinkle-crankle. Открыт для публики с 6 июня по 25 октября.",url:"https://www.archdaily.com/1042141/the-25th-serpentine-pavilion-designed-by-lanza-atelier-opens-to-the-public-on-june-6th-2026"},
+{date:"2026-06-18",dateEnd:"2026-06-23",type:"exhibition",title:"Concéntrico 2026 — фестиваль архитектурных интервенций",location:"Логроньо, Испания",summary:"Более 20 временных вмешательств от ведущих международных бюро на улицах, мостах и площадях города. Среди участников Смильян Радич, raumlabor, Matilde Cassani.",url:"https://www.archdaily.com/1041979/concentrico-festival-2026-unveils-24-urban-installations-across-logrono-spain"},
+{date:"2026-06-19",type:"opening",title:"Открытие Президентского центра Обамы для публики",location:"Чикаго, США",summary:"Кампус Tod Williams Billie Tsien Architects: 69-метровая гранитная башня-музей, библиотечный филиал, спортивная площадка. Открытие для публики намечено на 19 июня.",url:"https://www.dezeen.com/2026/06/04/tod-williams-billie-tsien-obama-presidential-center/"},
+{date:"2026-06-25",type:"anniversary",title:"174 года со дня рождения Антонио Гауди (1852)",location:"Реус, Испания",summary:"Каталонский архитектор родился 25 июня 1852 года. В 2026-м отмечается и столетие со дня его смерти (1926); программа торжеств Sagrada Familia продлится весь год.",url:"https://www.cnn.com/2026/06/08/style/sagrada-familia-barcelona-tower-jesus-christ-intl"},
+{date:"2026-06-28",dateEnd:"2026-07-02",type:"exhibition",title:"UIA World Congress of Architects 2026",location:"Барселона, Испания",summary:"Главное событие отрасли с 28 июня по 2 июля. Тема — «Becoming. Architectures for a Planet in Transition». Ожидается около 10 000 участников из более чем 130 стран.",url:"https://uia2026bcn.org/"},
+{date:"2026-07-23",type:"award",title:"Дедлайн AIA Los Angeles Design Awards",location:"Лос-Анджелес, США",summary:"Завершается приём работ на дизайн-премию AIA|LA (категории BUILT и UNBUILT). Все заявки должны быть поданы до 23:00 по тихоокеанскому времени 23 июля.",url:"https://www.aialosangeles.org/home/awards/design-awards/"},
+{date:"2026-07-23",dateEnd:"2026-07-26",type:"exhibition",title:"Фестиваль «Архстояние 2026: Маршрут перестроен»",location:"Никола-Ленивец, Калужская область",summary:"Крупнейший российский фестиваль ленд-арта и архитектуры в арт-парке Никола-Ленивец. Тема года — «Маршрут перестроен»: новые объекты и программа на четыре дня.",url:"https://www.vedomosti.ru/press_releases/2026/05/08/festival-arhstoyanie-2026-obyavlyaet-chast-programmi"},
+{date:"2026-08-03",type:"anniversary",title:"136 лет со дня рождения Константина Мельникова (1890)",location:"Москва",summary:"Один из главных русских авангардистов. Дом Мельникова в Кривоарбатском переулке продолжает работать как музей-кейс архитектурного эксперимента.",url:"https://muar.ru/expositions/dom-melnikova/"},
+{date:"2026-08-12",type:"anniversary",title:"81 год Жану Нувелю (1945)",location:"Париж",summary:"Лауреат Pritzker 2008. Главные проекты — Институт арабского мира в Париже, Лувр Абу-Даби, Концертный зал Копенгагена.",url:"https://www.jeannouvel.com/"}
+];
+
+// Эфемериды: памятные даты архитектуры.
+// m — месяц (1-12), d — день, y — год события, t — тип (birthday | death | building),
+// name — имя/название, ctx — короткий контекст, loc — место.
+const EPHEMERIDES = [
+// ЯНВАРЬ
+{m:4,d:1,y:2010,t:"building",name:"Бурдж-Халифа",ctx:"Самое высокое здание мира (828 м), Дубай. Бюро SOM, главный архитектор — Эдриан Смит.",loc:"Дубай, ОАЭ"},
+{m:1,d:4,y:2010,t:"building",name:"Бурдж-Халифа открыт",ctx:"Самое высокое здание мира (828 м), Дубай. Бюро SOM, главный архитектор — Эдриан Смит.",loc:"Дубай, ОАЭ"},
+{m:1,d:24,y:1944,t:"birthday",name:"Бернар Тшуми",ctx:"Швейцарско-французский деконструктивист, автор парка Ла-Виллет в Париже и Акропольского музея в Афинах.",loc:"Лозанна"},
+{m:1,d:25,y:1944,t:"birthday",name:"Бернар Тшуми",ctx:"Швейцарско-французский деконструктивист, автор парка Ла-Виллет в Париже и Акропольского музея в Афинах.",loc:"Лозанна"},
+{m:1,d:31,y:1977,t:"building",name:"Центр Помпиду открыт",ctx:"Лоу-тек икона авторства Ренцо Пиано и Ричарда Роджерса в Париже; коммуникации вынесены наружу.",loc:"Париж"},
+// ФЕВРАЛЬ
+{m:2,d:3,y:1898,t:"birthday",name:"Алвар Аалто",ctx:"Финский мастер органического модернизма; библиотека в Виипури, санаторий Паймио, Финляндия-холл в Хельсинки.",loc:"Куортане, Финляндия"},
+{m:2,d:14,y:1404,t:"birthday",name:"Леон Баттиста Альберти",ctx:"Теоретик ренессанса, автор трактата De re aedificatoria; реконструкция Темпио Малатестиано в Римини.",loc:"Генуя"},
+{m:2,d:18,y:1564,t:"death",name:"Микеланджело Буонарроти",ctx:"Архитектор позднего Возрождения; купол собора Святого Петра, площадь Капитолия в Риме.",loc:"Рим"},
+{m:2,d:20,y:1901,t:"birthday",name:"Луис Кан",ctx:"Американский модернист эстонско-еврейского происхождения; здание парламента в Дакке, музей Кимбелла в Форт-Уэрте.",loc:"Куресааре, Эстония"},
+{m:2,d:28,y:1929,t:"birthday",name:"Фрэнк Гери",ctx:"Канадско-американский деконструктивист, лауреат Pritzker 1989; Гуггенхайм Бильбао, Walt Disney Concert Hall.",loc:"Торонто"},
+// МАРТ
+{m:3,d:4,y:1753,t:"birthday",name:"Николай Львов",ctx:"Русский архитектор-классицист екатерининской эпохи; собор в Могилёве, усадьба Никольское-Черенчицы.",loc:"Тверская губерния"},
+{m:3,d:6,y:1475,t:"birthday",name:"Микеланджело Буонарроти",ctx:"Архитектор позднего Возрождения; купол собора Святого Петра, площадь Капитолия в Риме.",loc:"Капрезе"},
+{m:3,d:12,y:1737,t:"birthday",name:"Василий Баженов",ctx:"Один из основоположников русского классицизма; Пашков дом, Царицынский дворцовый ансамбль.",loc:"Калужская губерния"},
+{m:3,d:17,y:1974,t:"death",name:"Луис Кан",ctx:"Американский модернист эстонско-еврейского происхождения; парламент в Дакке, музей Кимбелла.",loc:"Нью-Йорк"},
+{m:3,d:27,y:1886,t:"birthday",name:"Людвиг Мис ван дер Роэ",ctx:"Третий директор Баухауса; «less is more»; Pavilion в Барселоне, Сигрэм-билдинг, Crown Hall.",loc:"Ахен"},
+{m:3,d:29,y:1989,t:"building",name:"Пирамида Лувра открыта",ctx:"Стеклянная пирамида Юй Мин Пея во дворе Лувра — главный знак «гранд-проекта» Миттерана.",loc:"Париж"},
+{m:3,d:31,y:1889,t:"building",name:"Эйфелева башня открыта",ctx:"Инженерная икона Всемирной выставки 1889 года; задумывалась как временный павильон, осталась навсегда.",loc:"Париж"},
+{m:3,d:31,y:2016,t:"death",name:"Заха Хадид",ctx:"Британо-иракский деконструктивист, первая женщина-лауреат Pritzker (2004); музей MAXXI, центр Гейдара Алиева.",loc:"Майами"},
+// АПРЕЛЬ
+{m:4,d:8,y:1934,t:"birthday",name:"Кисё Курокава",ctx:"Один из основателей метаболизма; Nakagin Capsule Tower в Токио, музей современного искусства в Хиросаки.",loc:"Айти"},
+{m:4,d:9,y:1959,t:"death",name:"Фрэнк Ллойд Райт",ctx:"Главный американский архитектор XX века; Fallingwater, Гуггенхайм Нью-Йорк, Robie House.",loc:"Финикс"},
+{m:4,d:14,y:1924,t:"death",name:"Луис Салливан",ctx:"«Отец небоскрёбов», учитель Райта; Wainwright Building, Auditorium Building в Чикаго.",loc:"Чикаго"},
+{m:4,d:15,y:1446,t:"death",name:"Филиппо Брунеллески",ctx:"Архитектор итальянского Возрождения, изобретатель линейной перспективы; купол собора во Флоренции.",loc:"Флоренция"},
+{m:4,d:28,y:1891,t:"birthday",name:"Борис Иофан",ctx:"Главный архитектор сталинской эпохи; Дом на набережной, проект Дворца Советов, павильон СССР в Париже 1937.",loc:"Одесса"},
+// МАЙ
+{m:5,d:1,y:1851,t:"building",name:"Хрустальный дворец открыт",ctx:"Сборная стекло-чугунная постройка Джозефа Пакстона для Великой выставки в лондонском Гайд-парке.",loc:"Лондон"},
+{m:5,d:1,y:1931,t:"building",name:"Эмпайр-стейт-билдинг открыт",ctx:"102-этажный небоскрёб в стиле ар-деко; 381 м, оставался самым высоким зданием мира до 1972 года.",loc:"Нью-Йорк"},
+{m:5,d:11,y:1976,t:"death",name:"Алвар Аалто",ctx:"Финский мастер органического модернизма; библиотека в Виипури, Финляндия-холл.",loc:"Хельсинки"},
+{m:5,d:12,y:1946,t:"birthday",name:"Даниэль Либескинд",ctx:"Польско-американский деконструктивист; Еврейский музей в Берлине, мастер-план реконструкции Граунд-Зиро.",loc:"Лодзь"},
+{m:5,d:18,y:1883,t:"birthday",name:"Вальтер Гропиус",ctx:"Основатель Баухауса (1919), идеолог синтеза искусства и ремесла; здание Баухауса в Дессау.",loc:"Берлин"},
+{m:5,d:24,y:1949,t:"death",name:"Алексей Щусев",ctx:"Автор Мавзолея Ленина, Казанского вокзала и гостиницы «Москва»; четырежды лауреат Сталинской премии.",loc:"Москва"},
+{m:5,d:27,y:1930,t:"building",name:"Крайслер-билдинг открыт",ctx:"Ар-деко-икона Уильяма Ван Алена в Нью-Йорке; на 11 месяцев был самым высоким зданием мира.",loc:"Нью-Йорк"},
+{m:5,d:31,y:1859,t:"building",name:"Биг-Бен пущен",ctx:"Часовой механизм башни Святого Стефана у Вестминстерского дворца запущен 31 мая 1859 года.",loc:"Лондон"},
+// ИЮНЬ
+{m:6,d:1,y:1870,t:"birthday",name:"Фёдор Лидваль",ctx:"Один из главных мастеров петербургского северного модерна; доходные дома на Каменноостровском проспекте.",loc:"Санкт-Петербург"},
+{m:6,d:1,y:1935,t:"birthday",name:"Норман Фостер",ctx:"Британский хай-тек, лауреат Pritzker 1999; Купол Рейхстага, мост Миллениум, штаб HSBC в Гонконге.",loc:"Манчестер"},
+{m:6,d:7,y:1868,t:"birthday",name:"Чарлз Ренни Макинтош",ctx:"Шотландский модернист, главный мастер Глазговской школы; здание Школы искусств в Глазго, Hill House.",loc:"Глазго"},
+{m:6,d:8,y:1867,t:"birthday",name:"Фрэнк Ллойд Райт",ctx:"Главный американский архитектор XX века; Fallingwater, Гуггенхайм Нью-Йорк, Robie House, Taliesin.",loc:"Ричленд-Сентер, Висконсин"},
+{m:6,d:10,y:1926,t:"death",name:"Антонио Гауди",ctx:"Каталонский архитектор-модернист, мастер криволинейных форм; погиб под трамваем в Барселоне.",loc:"Барселона"},
+{m:6,d:25,y:1852,t:"birthday",name:"Антонио Гауди",ctx:"Каталонский архитектор-модернист, мастер криволинейных форм; ключевое произведение — Sagrada Familia.",loc:"Реус, Каталония"},
+{m:6,d:25,y:1925,t:"birthday",name:"Роберт Вентури",ctx:"Один из идеологов архитектурного постмодернизма, лауреат Pritzker 1991; «Learning from Las Vegas».",loc:"Филадельфия"},
+// ИЮЛЬ
+{m:7,d:5,y:1969,t:"death",name:"Вальтер Гропиус",ctx:"Основатель Баухауса, идеолог синтеза искусства и ремесла; здание Баухауса в Дессау.",loc:"Бостон"},
+{m:7,d:7,y:1926,t:"death",name:"Фёдор Шехтель",ctx:"Главный мастер русского модерна; особняк Рябушинского, Ярославский вокзал, типография «Утро России».",loc:"Москва"},
+{m:7,d:16,y:1959,t:"death",name:"Иван Жолтовский",ctx:"Главный «классицист» советской эпохи; дом на Моховой, дом на Смоленской площади, кинотеатр «Ударник» (соавт.).",loc:"Москва"},
+{m:7,d:23,y:1931,t:"birthday",name:"Арата Исодзаки",ctx:"Японский постмодернист, лауреат Pritzker 2019; Музей современного искусства в Лос-Анджелесе, Олимпийский гимнастический зал в Барселоне.",loc:"Ойта"},
+{m:7,d:23,y:1933,t:"birthday",name:"Ричард Роджерс",ctx:"Британский хай-тек, лауреат Pritzker 2007; Центр Помпиду, здание Lloyd's of London, Сенедд в Кардиффе.",loc:"Флоренция"},
+{m:7,d:24,y:1769,t:"birthday",name:"Василий Стасов",ctx:"Русский архитектор-классицист; Спасо-Преображенский и Троицкий соборы в Петербурге, Нарвские ворота.",loc:"Москва"},
+{m:7,d:28,y:1951,t:"birthday",name:"Сантьяго Калатрава",ctx:"Испанский архитектор-инженер; вокзал Lyon Saint-Exupéry, Город искусств и наук в Валенсии, Turning Torso в Мальмё.",loc:"Бенимамет, Валенсия"},
+// АВГУСТ
+{m:8,d:3,y:1890,t:"birthday",name:"Константин Мельников",ctx:"Один из главных русских авангардистов; клубы Москвы, гараж Гостранса, дом-мастерская в Кривоарбатском.",loc:"Москва"},
+{m:8,d:7,y:1859,t:"birthday",name:"Фёдор Шехтель",ctx:"Главный мастер русского модерна; особняк Рябушинского, Ярославский вокзал, типография «Утро России».",loc:"Санкт-Петербург"},
+{m:8,d:8,y:1761,t:"birthday",name:"Андреян Захаров",ctx:"Русский архитектор-классицист, автор Адмиралтейства в Петербурге — одного из символов города.",loc:"Санкт-Петербург"},
+{m:8,d:8,y:1954,t:"birthday",name:"Кэнго Кума",ctx:"Японский мастер «слабой архитектуры», работы с деревом и натуральными материалами; Стадион Токио-2020, V&A Dundee.",loc:"Йокогама"},
+{m:8,d:11,y:1856,t:"birthday",name:"Леонтий Бенуа",ctx:"Русско-французский архитектор петербургской академической традиции; западный корпус Русского музея, церковь иконы «Всех скорбящих» на Стеклянном.",loc:"Петергоф"},
+{m:8,d:11,y:1932,t:"birthday",name:"Питер Айзенман",ctx:"Один из лидеров деконструктивизма; Мемориал Холокоста в Берлине, Wexner Center в Огайо.",loc:"Ньюарк"},
+{m:8,d:12,y:1945,t:"birthday",name:"Жан Нувель",ctx:"Французский архитектор, лауреат Pritzker 2008; Институт арабского мира, Лувр Абу-Даби, Концертный зал в Копенгагене.",loc:"Фюмель"},
+{m:8,d:17,y:1969,t:"death",name:"Людвиг Мис ван дер Роэ",ctx:"Директор Баухауса; «less is more»; Pavilion в Барселоне, Сигрэм-билдинг.",loc:"Чикаго"},
+{m:8,d:19,y:1580,t:"death",name:"Андреа Палладио",ctx:"Главный архитектор позднего Возрождения, автор «Четырёх книг об архитектуре»; виллы в Виченце.",loc:"Маросер"},
+{m:8,d:20,y:1910,t:"birthday",name:"Эро Сааринен",ctx:"Финско-американский модернист; Gateway Arch в Сент-Луисе, терминал TWA в JFK.",loc:"Киркконумми, Финляндия"},
+{m:8,d:22,y:1901,t:"birthday",name:"Дмитрий Чечулин",ctx:"Главный архитектор Москвы 1945-49; гостиница «Россия», высотка на Котельнической, Театр имени Моссовета.",loc:"Шостка"},
+{m:8,d:27,y:1965,t:"death",name:"Ле Корбюзье",ctx:"Главный модернист XX века; единица расселения в Марселе, капелла в Роншане, мастер-план Чандигарха.",loc:"Рокбрюн-Кап-Мартен"},
+{m:8,d:28,y:1853,t:"birthday",name:"Владимир Шухов",ctx:"Русский инженер-архитектор; Шуховская башня, гиперболоидные конструкции, перекрытия ГУМа и Киевского вокзала.",loc:"Грайворон"},
+// СЕНТЯБРЬ
+{m:9,d:1,y:1953,t:"building",name:"Главное здание МГУ открыто",ctx:"Самая большая из «семи сестёр» на Воробьёвых горах (Лев Руднев и др.); 240 м, высочайшее здание Европы до 1990.",loc:"Москва"},
+{m:9,d:1,y:1961,t:"death",name:"Эро Сааринен",ctx:"Финско-американский модернист; Gateway Arch в Сент-Луисе, терминал TWA в JFK, GM Technical Center.",loc:"Анн-Арбор"},
+{m:9,d:3,y:1856,t:"birthday",name:"Луис Салливан",ctx:"«Отец небоскрёбов», учитель Райта; Wainwright Building, Auditorium Building, Carson Pirie Scott.",loc:"Бостон"},
+{m:9,d:4,y:1913,t:"birthday",name:"Кэндзо Тангэ",ctx:"Главный японский модернист, лауреат Pritzker 1987; Парк мира в Хиросиме, Олимпийский комплекс Йойоги.",loc:"Имабари"},
+{m:9,d:13,y:1941,t:"birthday",name:"Тадао Андо",ctx:"Японский минималист, лауреат Pritzker 1995; работа с гладким бетоном и светом; Церковь Света, Музей искусств Чичу.",loc:"Осака"},
+{m:9,d:14,y:1937,t:"birthday",name:"Ренцо Пиано",ctx:"Итальянский хай-тек, лауреат Pritzker 1998; Центр Помпиду, The Shard, музей Whitney в Нью-Йорке.",loc:"Генуя"},
+{m:9,d:20,y:1744,t:"birthday",name:"Джакомо Кваренги",ctx:"Итальянский архитектор русского классицизма; Александровский дворец в Царском Селе, Эрмитажный театр, Смольный институт.",loc:"Бергамо"},
+{m:9,d:22,y:1966,t:"birthday",name:"Дэвид Аджайе",ctx:"Британо-ганский архитектор, рыцарь Британской империи; Национальный музей афроамериканской истории в Вашингтоне.",loc:"Дар-эс-Салам"},
+{m:9,d:25,y:1599,t:"birthday",name:"Франческо Борромини",ctx:"Главный архитектор итальянского барокко; Сан-Карло алле Куатро Фонтане, Сант-Иво алла Сапиенца.",loc:"Биссоне"},
+// ОКТЯБРЬ
+{m:10,d:2,y:1974,t:"birthday",name:"Бьярке Ингельс",ctx:"Датский архитектор, основатель BIG; «гедонистическая устойчивость»; 8 House, VIA 57 West, штаб-квартира LEGO.",loc:"Копенгаген"},
+{m:10,d:6,y:1887,t:"birthday",name:"Ле Корбюзье",ctx:"Главный модернист XX века; вилла Савой, единица расселения в Марселе, капелла в Роншане.",loc:"Ла-Шо-де-Фон, Швейцария"},
+{m:10,d:8,y:1873,t:"birthday",name:"Алексей Щусев",ctx:"Автор Мавзолея Ленина, Казанского вокзала и гостиницы «Москва»; четырежды лауреат Сталинской премии.",loc:"Кишинёв"},
+{m:10,d:12,y:1934,t:"birthday",name:"Ричард Майер",ctx:"Американский неомодернист, лауреат Pritzker 1984; работа с белым; Музей Гетти в Лос-Анджелесе, Городской музей Нидерланды.",loc:"Ньюарк"},
+{m:10,d:17,y:1759,t:"birthday",name:"Андрей Воронихин",ctx:"Русский архитектор-классицист; Казанский собор и Горный институт в Петербурге.",loc:"Новое Усолье, Пермская губерния"},
+{m:10,d:18,y:1997,t:"building",name:"Гуггенхайм Бильбао открыт",ctx:"Музей-икона Фрэнка Гери, давший имя «Эффекту Бильбао» — феномену культурной регенерации городов.",loc:"Бильбао"},
+{m:10,d:20,y:1632,t:"birthday",name:"Кристофер Рен",ctx:"Главный английский архитектор XVII века; собор Святого Павла в Лондоне, восстановление города после Великого пожара.",loc:"Ист-Нойл"},
+{m:10,d:20,y:1973,t:"building",name:"Сиднейская опера открыта",ctx:"Икона австралийского модернизма работы Йорна Утцона; объект Всемирного наследия ЮНЕСКО.",loc:"Сидней"},
+{m:10,d:21,y:1959,t:"building",name:"Гуггенхайм Нью-Йорк открыт",ctx:"Спиральный музей Фрэнка Ллойда Райта на 5-й авеню; первый «непрерывный» выставочный пандус.",loc:"Нью-Йорк"},
+{m:10,d:24,y:1784,t:"birthday",name:"Осип Бове",ctx:"Главный архитектор послепожарной Москвы; Большой театр, Манеж, Александровский сад, Триумфальные ворота.",loc:"Санкт-Петербург"},
+{m:10,d:29,y:1956,t:"birthday",name:"Кадзуо Сэдзима",ctx:"Японский минималист, сооснователь SANAA, лауреат Pritzker 2010; Музей Rolex Learning Center в Лозанне, павильон 21st Century Art в Канадзаве.",loc:"Митои"},
+{m:10,d:31,y:1950,t:"birthday",name:"Заха Хадид",ctx:"Британо-иракский деконструктивист, первая женщина-лауреат Pritzker (2004); MAXXI, центр Гейдара Алиева.",loc:"Багдад"},
+// НОЯБРЬ
+{m:11,d:4,y:1967,t:"building",name:"Останкинская башня пущена",ctx:"Железобетонная телебашня Николая Никитина — 540 м, высочайшее свободностоящее сооружение мира до 1976 года.",loc:"Москва"},
+{m:11,d:6,y:1794,t:"birthday",name:"Константин Тон",ctx:"Архитектор «русско-византийского стиля»; Храм Христа Спасителя, Большой Кремлёвский дворец, Николаевский вокзал.",loc:"Санкт-Петербург"},
+{m:11,d:6,y:1959,t:"death",name:"Иван Леонидов",ctx:"«Поэт» русского авангарда; проект Института Ленина, концепция вертикального города. Большая часть проектов осталась на бумаге.",loc:"Москва"},
+{m:11,d:17,y:1944,t:"birthday",name:"Рем Колхас",ctx:"Голландский теоретик, основатель OMA, лауреат Pritzker 2000; Сиэтлская публичная библиотека, штаб CCTV в Пекине, Casa da Música в Порту.",loc:"Роттердам"},
+{m:11,d:22,y:1988,t:"death",name:"Луис Барраган",ctx:"Главный мексиканский архитектор XX века, лауреат Pritzker 1980; цветовые проектные жесты, дом-музей в Мехико.",loc:"Мехико"},
+{m:11,d:23,y:1890,t:"birthday",name:"Эль Лисицкий",ctx:"Русский авангардист, теоретик, мастер графики и архитектурных «проунов»; проект «Облачной шпили» для Москвы.",loc:"Починок, Смоленская губерния"},
+{m:11,d:27,y:1867,t:"birthday",name:"Иван Жолтовский",ctx:"Главный «классицист» советской эпохи; дом на Моховой, дом на Смоленской площади, ипподром в Москве.",loc:"Пинск"},
+{m:11,d:28,y:1974,t:"death",name:"Константин Мельников",ctx:"Один из главных русских авангардистов; клубы Москвы, гараж Гостранса, дом-мастерская в Кривоарбатском.",loc:"Москва"},
+{m:11,d:30,y:1508,t:"birthday",name:"Андреа Палладио",ctx:"Главный архитектор позднего Возрождения, автор «Четырёх книг об архитектуре»; виллы в Виченце.",loc:"Падуя"},
+// ДЕКАБРЬ
+{m:12,d:5,y:1907,t:"birthday",name:"Оскар Нимейер",ctx:"Главный архитектор бразильского модернизма, лауреат Pritzker 1988; ансамбль Бразилиа, штаб-квартира ООН (соавтор).",loc:"Рио-де-Жанейро"},
+{m:12,d:5,y:1939,t:"birthday",name:"Рикардо Бофилл",ctx:"Каталонский архитектор-постмодернист; квартал Antigone в Монпелье, Walden 7 в Барселоне.",loc:"Барселона"},
+{m:12,d:5,y:2012,t:"death",name:"Оскар Нимейер",ctx:"Главный архитектор бразильского модернизма, лауреат Pritzker 1988; ансамбль Бразилиа, дом на пляже Канобы.",loc:"Рио-де-Жанейро"},
+{m:12,d:7,y:1598,t:"birthday",name:"Джованни Лоренцо Бернини",ctx:"Главный архитектор римского барокко; колоннада площади Святого Петра, балдахин в соборе, фонтан Четырёх рек.",loc:"Неаполь"},
+{m:12,d:9,y:1947,t:"birthday",name:"Стивен Холл",ctx:"Американский феноменолог архитектуры; Институт современного искусства в Хельсинки, корпус MIT Simmons Hall.",loc:"Брементон"},
+{m:12,d:10,y:1928,t:"death",name:"Чарлз Ренни Макинтош",ctx:"Шотландский модернист, главный мастер Глазговской школы; здание Школы искусств в Глазго, Hill House.",loc:"Лондон"},
+{m:12,d:15,y:1870,t:"birthday",name:"Йозеф Хоффман",ctx:"Австрийский сецессионист, сооснователь Wiener Werkstätte; санаторий Пуркерсдорф, дворец Стокле в Брюсселе.",loc:"Пирниц, Моравия"},
+{m:12,d:18,y:1775,t:"birthday",name:"Карло Росси",ctx:"Архитектор позднего русского классицизма; Дворцовая площадь и здание Главного штаба, Михайловский дворец, Александринский театр.",loc:"Санкт-Петербург (по др. данным — Неаполь)"},
+{m:12,d:18,y:2021,t:"death",name:"Ричард Роджерс",ctx:"Британский хай-тек, лауреат Pritzker 2007; Центр Помпиду, здание Lloyd's of London, Сенедд.",loc:"Лондон"},
+{m:12,d:28,y:1885,t:"birthday",name:"Владимир Татлин",ctx:"Русский авангардист; проект «Башни III Интернационала» — несостоявшегося символа советского конструктивизма.",loc:"Москва"},
+{m:12,d:28,y:2022,t:"death",name:"Арата Исодзаки",ctx:"Японский постмодернист, лауреат Pritzker 2019; MOCA в Лос-Анджелесе, Олимпийский гимнастический зал в Барселоне.",loc:"Окинава"},
+{m:12,d:30,y:1941,t:"death",name:"Эль Лисицкий",ctx:"Русский авангардист, теоретик, мастер графики и архитектурных «проунов»; проект «Облачной шпили» для Москвы.",loc:"Москва"}
+];
+
+// Удаляю дубликаты с одинаковыми (m,d,y,t,name)
+const _seen=new Set();
+const EPHEM=EPHEMERIDES.filter(e=>{const k=`${e.m}-${e.d}-${e.y}-${e.t}-${e.name}`;if(_seen.has(k))return false;_seen.add(k);return true});
+
 const TOPICS=[{id:"all",label:"Все темы"},{id:"buildings",label:"Здания и проекты"},{id:"urbanism",label:"Урбанистика"},{id:"awards",label:"Премии и события"},{id:"people",label:"Персоны и интервью"},{id:"engineering",label:"Инженерные решения"}];
 const REGIONS=[{id:"all",label:"Все регионы"},{id:"international",label:"Международные"},{id:"russia",label:"Россия"},{id:"europe",label:"Европа"}];
-const state={topic:"all",region:"all"};
+const EVENT_TYPES=[{id:"all",label:"Все события"},{id:"opening",label:"Открытия и сдачи"},{id:"exhibition",label:"Выставки и фестивали"},{id:"award",label:"Премии и дедлайны"},{id:"anniversary",label:"Юбилеи и даты"}];
+const EPHEM_RANGES=[{id:"30d",label:"Ближайшие 30 дней"},{id:"month",label:"Этот месяц"},{id:"quarter",label:"Этот квартал"},{id:"year",label:"Весь год"}];
+const EPHEM_TYPES=[{id:"all",label:"Все"},{id:"birthday",label:"Дни рождения"},{id:"death",label:"Памятные даты"},{id:"building",label:"Здания"}];
+const MONTHS_GEN=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+const MONTHS_NOM=["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"];
+
+const state={topic:"all",region:"all",eventType:"all",ephemRange:"30d",ephemType:"all",tab:"news"};
+
 function fmtDate(iso){const m=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];const d=new Date(iso);return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()}`}
+function fmtEventDate(d){return `${d.getDate()} ${MONTHS_GEN[d.getMonth()]}`}
 function topicLabel(id){const t=TOPICS.find(x=>x.id===id);return t?t.label:id}
-function renderFilters(){const tR=document.getElementById("topic-filters"),rR=document.getElementById("region-filters");TOPICS.forEach(t=>{const c=document.createElement("span");c.className="chip"+(state.topic===t.id?" active":"");c.textContent=t.label;c.onclick=()=>{state.topic=t.id;render()};tR.appendChild(c)});REGIONS.forEach(r=>{const c=document.createElement("span");c.className="chip"+(state.region===r.id?" active":"");c.textContent=r.label;c.onclick=()=>{state.region=r.id;render()};rR.appendChild(c)})}
-function render(){document.querySelectorAll("#topic-filters .chip").forEach((c,i)=>c.classList.toggle("active",TOPICS[i].id===state.topic));document.querySelectorAll("#region-filters .chip").forEach((c,i)=>c.classList.toggle("active",REGIONS[i].id===state.region));const f=NEWS.filter(n=>(state.topic==="all"||n.topics.includes(state.topic))&&(state.region==="all"||n.region===state.region)).sort((a,b)=>b.date.localeCompare(a.date));const g=document.getElementById("grid");document.getElementById("count").textContent=`Показано: ${f.length} из ${NEWS.length}`;g.innerHTML="";if(!f.length){const e=document.createElement("div");e.className="empty";e.textContent="Нет новостей.";g.appendChild(e);return}f.forEach(n=>{const c=document.createElement("article");c.className="card";const th=n.topics.map(t=>`<span class="topic-tag">${topicLabel(t)}</span>`).join("");c.innerHTML=`<div class="meta"><span class="source"><a href="${n.sourceUrl}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${n.source}</a></span><span>${fmtDate(n.date)}</span></div><h3><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></h3><p class="summary">${n.summary}</p><div class="topics">${th}</div>`;g.appendChild(c)})}
-renderFilters();render();
+
+function renderFilters(){
+  const tR=document.getElementById("topic-filters"),rR=document.getElementById("region-filters"),eR=document.getElementById("event-filters"),epR=document.getElementById("ephem-range-filters"),epT=document.getElementById("ephem-type-filters");
+  TOPICS.forEach(t=>{const c=document.createElement("span");c.className="chip"+(state.topic===t.id?" active":"");c.textContent=t.label;c.onclick=()=>{state.topic=t.id;renderNews()};tR.appendChild(c)});
+  REGIONS.forEach(r=>{const c=document.createElement("span");c.className="chip"+(state.region===r.id?" active":"");c.textContent=r.label;c.onclick=()=>{state.region=r.id;renderNews()};rR.appendChild(c)});
+  EVENT_TYPES.forEach(t=>{const c=document.createElement("span");c.className="chip"+(state.eventType===t.id?" active":"");c.textContent=t.label;c.onclick=()=>{state.eventType=t.id;renderEvents()};eR.appendChild(c)});
+  EPHEM_RANGES.forEach(t=>{const c=document.createElement("span");c.className="chip"+(state.ephemRange===t.id?" active":"");c.textContent=t.label;c.onclick=()=>{state.ephemRange=t.id;renderEphem()};epR.appendChild(c)});
+  EPHEM_TYPES.forEach(t=>{const c=document.createElement("span");c.className="chip"+(state.ephemType===t.id?" active":"");c.textContent=t.label;c.onclick=()=>{state.ephemType=t.id;renderEphem()};epT.appendChild(c)});
+}
+
+function renderNews(){
+  document.querySelectorAll("#topic-filters .chip").forEach((c,i)=>c.classList.toggle("active",TOPICS[i].id===state.topic));
+  document.querySelectorAll("#region-filters .chip").forEach((c,i)=>c.classList.toggle("active",REGIONS[i].id===state.region));
+  const f=NEWS.filter(n=>(state.topic==="all"||n.topics.includes(state.topic))&&(state.region==="all"||n.region===state.region)).sort((a,b)=>b.date.localeCompare(a.date));
+  const g=document.getElementById("grid");
+  document.getElementById("count").textContent=`Показано: ${f.length} из ${NEWS.length}`;
+  g.innerHTML="";
+  if(!f.length){const e=document.createElement("div");e.className="empty";e.textContent="Нет новостей.";g.appendChild(e);return}
+  f.forEach(n=>{
+    const c=document.createElement("article");c.className="card";
+    const th=n.topics.map(t=>`<span class="topic-tag">${topicLabel(t)}</span>`).join("");
+    c.innerHTML=`<div class="meta"><span class="source"><a href="${n.sourceUrl}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${n.source}</a></span><span>${fmtDate(n.date)}</span></div><h3><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></h3><p class="summary">${n.summary}</p><div class="topics">${th}</div>`;
+    g.appendChild(c)
+  })
+}
+
+function renderEvents(){
+  document.querySelectorAll("#event-filters .chip").forEach((c,i)=>c.classList.toggle("active",EVENT_TYPES[i].id===state.eventType));
+  const f=EVENTS.filter(e=>state.eventType==="all"||e.type===state.eventType).sort((a,b)=>a.date.localeCompare(b.date));
+  const container=document.getElementById("events");
+  container.innerHTML="";
+  if(!f.length){const e=document.createElement("div");e.className="empty";e.textContent="По выбранному фильтру событий нет.";container.appendChild(e);return}
+  let currentMonth=null;
+  const typeLabels={opening:"Открытие",exhibition:"Выставка",award:"Премия",anniversary:"Юбилей"};
+  f.forEach(ev=>{
+    const d=new Date(ev.date);
+    const monthKey=`${d.getFullYear()}-${d.getMonth()}`;
+    if(monthKey!==currentMonth){
+      const h=document.createElement("div");h.className="month-head";
+      h.textContent=`${MONTHS_NOM[d.getMonth()].charAt(0).toUpperCase()+MONTHS_NOM[d.getMonth()].slice(1)} ${d.getFullYear()}`;
+      container.appendChild(h);currentMonth=monthKey;
+    }
+    const row=document.createElement("div");row.className="evt";
+    let dateStr=fmtEventDate(d);
+    if(ev.dateEnd){
+      const e2=new Date(ev.dateEnd);
+      if(e2.getMonth()===d.getMonth())dateStr=`${d.getDate()}–${e2.getDate()} ${MONTHS_GEN[d.getMonth()]}`;
+      else dateStr=`${d.getDate()} ${MONTHS_GEN[d.getMonth()]} — ${e2.getDate()} ${MONTHS_GEN[e2.getMonth()]}`;
+    }
+    row.innerHTML=`<div class="evt-date">${dateStr}<small>${typeLabels[ev.type]||""}</small></div><div class="evt-body"><span class="evt-tag ${ev.type}">${typeLabels[ev.type]||ev.type}</span><h4>${ev.url?`<a href="${ev.url}" target="_blank" rel="noopener">${ev.title}</a>`:ev.title}</h4>${ev.location?`<div class="evt-loc">${ev.location}</div>`:""}<p>${ev.summary}</p></div>`;
+    container.appendChild(row);
+  });
+}
+
+// Эфемериды
+function ordinalAge(n){
+  // в русском: 1 года, 2 лет, 5 лет, 21 года, 100 лет...
+  const a=Math.abs(n)%100, b=a%10;
+  if(a>=11&&a<=19)return `${n} лет`;
+  if(b===1)return `${n} год`;
+  if(b>=2&&b<=4)return `${n} года`;
+  return `${n} лет`;
+}
+
+function renderEphem(){
+  document.querySelectorAll("#ephem-range-filters .chip").forEach((c,i)=>c.classList.toggle("active",EPHEM_RANGES[i].id===state.ephemRange));
+  document.querySelectorAll("#ephem-type-filters .chip").forEach((c,i)=>c.classList.toggle("active",EPHEM_TYPES[i].id===state.ephemType));
+  const now=new Date(); now.setHours(0,0,0,0);
+  const Y=now.getFullYear();
+
+  function dateForEphem(e){
+    // ближайшая дата (m,d) от сегодняшнего дня (в этом году или в следующем)
+    let dt=new Date(Y,e.m-1,e.d); dt.setHours(0,0,0,0);
+    if(dt<now) dt=new Date(Y+1,e.m-1,e.d);
+    return dt;
+  }
+  function inRange(dt){
+    if(state.ephemRange==="30d"){const end=new Date(now);end.setDate(end.getDate()+30);return dt>=now&&dt<=end}
+    if(state.ephemRange==="month")return dt.getMonth()===now.getMonth()&&dt.getFullYear()===now.getFullYear();
+    if(state.ephemRange==="quarter"){const start=new Date(Y,now.getMonth(),1);const end=new Date(Y,now.getMonth()+3,0);return dt>=start&&dt<=end}
+    if(state.ephemRange==="year")return dt.getFullYear()===Y||dt.getFullYear()===Y+1;
+    return true;
+  }
+
+  let f=EPHEM.filter(e=>state.ephemType==="all"||e.t===state.ephemType).map(e=>({...e,_dt:dateForEphem(e)})).filter(e=>inRange(e._dt));
+  // В режиме "Этот месяц" — показываем ВСЕ даты этого месяца (в т.ч. прошедшие)
+  if(state.ephemRange==="month"){
+    f=EPHEM.filter(e=>state.ephemType==="all"||e.t===state.ephemType).filter(e=>e.m===now.getMonth()+1).map(e=>({...e,_dt:new Date(Y,e.m-1,e.d)}));
+  }
+  if(state.ephemRange==="year"){
+    f=EPHEM.filter(e=>state.ephemType==="all"||e.t===state.ephemType).map(e=>({...e,_dt:new Date(Y,e.m-1,e.d)}));
+  }
+  f.sort((a,b)=>a._dt-b._dt||a.m-b.m||a.d-b.d);
+
+  const container=document.getElementById("ephem");
+  document.getElementById("ephem-count").textContent=`Показано: ${f.length} из ${EPHEM.length}`;
+  container.innerHTML="";
+  if(!f.length){const e=document.createElement("div");e.className="empty";e.textContent="По выбранному фильтру дат нет.";container.appendChild(e);return}
+  let currentMonth=null;
+  const typeLabels={birthday:"Рождение",death:"Памятная дата",building:"Здание"};
+  f.forEach(e=>{
+    const dt=e._dt;
+    const monthKey=`${dt.getFullYear()}-${dt.getMonth()}`;
+    if(monthKey!==currentMonth){
+      const h=document.createElement("div");h.className="month-head";
+      h.textContent=`${MONTHS_NOM[dt.getMonth()].charAt(0).toUpperCase()+MONTHS_NOM[dt.getMonth()].slice(1)} ${dt.getFullYear()}`;
+      container.appendChild(h);currentMonth=monthKey;
+    }
+    const row=document.createElement("div");row.className="evt";
+    const years=dt.getFullYear()-e.y;
+    const ageStr=ordinalAge(years);
+    let title="";
+    if(e.t==="birthday")title=`${ageStr} со дня рождения ${e.name}`;
+    else if(e.t==="death")title=`${ageStr} со дня смерти ${e.name}`;
+    else title=`${ageStr} зданию: ${e.name}`;
+    row.innerHTML=`<div class="evt-date">${e.d} ${MONTHS_GEN[e.m-1]}<small>${e.y}</small></div><div class="evt-body"><span class="evt-tag ${e.t}">${typeLabels[e.t]}</span><h4>${title}</h4>${e.loc?`<div class="evt-loc">${e.loc}</div>`:""}<p>${e.ctx}</p></div>`;
+    container.appendChild(row);
+  });
+}
+
+document.querySelectorAll(".tab").forEach(t=>{
+  t.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".pane").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById("pane-"+t.dataset.tab).classList.add("active");
+    state.tab=t.dataset.tab;
+    if(state.tab==="calendar")renderEvents();
+    if(state.tab==="ephem")renderEphem();
+  };
+});
+
+renderFilters();renderNews();
 </script>
 </body>
 </html>
